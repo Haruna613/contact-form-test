@@ -1,0 +1,133 @@
+.header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.header-inner__title {
+    width: 100%;
+    font-family: serif;
+    color: #8f6552;
+    font-size: 36px;
+    text-align: center;
+}
+
+.main {
+    width: 100%;
+}
+
+.main-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-inner__header {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.main-inner__header-title {
+    font-family: serif;
+    color: #8f6552;
+    font-size: 36px;
+    text-align: center;
+}
+
+.form{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form__group{
+    width: 100%;
+}
+
+.form__table{
+    width: 100%;
+}
+
+.form__table-row{
+    width: 100%;
+}
+
+.form__table--title{
+    width: 40%;
+    color: #fff;
+    background-color: #bda393;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0 10px 40px;
+    font-weight: lighter;
+}
+
+.form__table-data{
+    width: 70%;
+    border-bottom: 1px solid #bda393;
+}
+
+.form__table--name{
+    width: 10%;
+    border: none;
+    padding: 10px;
+    color: #8f6552;
+    font-size: 16px;
+}
+
+.form__table--name:first-child{
+    margin-left: 5%;
+}
+
+.form__table--item{
+    width: 90%;
+    border: none;
+    padding: 10px;
+    color: #8f6552;
+    font-size: 16px;
+    margin-left: 5%;
+}
+
+.form__table--tel{
+    width: 10%;
+    border: none;
+    padding: 10px 0;
+    color: #8f6552;
+    font-size: 16px;
+}
+
+.form__table--tel:first-child{
+    margin-left: 7%;
+}
+
+.form__buttons{
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.form__buttons-send{
+    width: 60%;
+    height: 50px;
+    margin-right: 10%;
+    margin-top: 60px;
+    background-color: #7e5f4d;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form__buttons-edit{
+    width: 30%;
+    margin-top: 60px;
+    color: #7e5f4d;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #7e5f4d;
+    background-color: #fff;
+    cursor: pointer;
+}

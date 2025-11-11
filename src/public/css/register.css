@@ -1,0 +1,118 @@
+.header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+}
+
+.header-inner {
+    width: 80%;
+    margin-left: 15%;
+    padding: 10px 0;
+}
+
+.header-inner__title {
+    width: 30%;
+    font-family: serif;
+    color: #8f6552;
+    font-size: 36px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.header-inner__link {
+    width: 5%;
+    height: 30px;
+    font-family: serif;
+    color: #8f6552;
+    background-color: #ddd;
+    text-decoration: none;
+    border: 1px solid #8f6552;
+    border-radius: 3px;
+    margin: 2% 10% 0 0;
+    text-align: center;
+    padding: 2px 0 0 0;
+}
+
+.main {
+    width: 100%;
+    background-color: #ddd;
+    padding: 2% 0 20% 0;
+}
+
+.main-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-inner__header {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.main-inner__header-title {
+    font-family: serif;
+    color: #8f6552;
+    font-size: 36px;
+    text-align: center;
+}
+
+.form {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.form__group {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10% 5%;
+}
+
+.form__group-inner {
+    width: 100%;
+}
+
+.form__group-item {
+    width: 100%;
+}
+
+.group__title {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.group__title-name {
+    width: 100%;
+    font-size: 24px;
+    color: #8f6552;
+}
+
+.group__input {
+    width: 100%;
+    font-size: 14px;
+    padding: 20px;
+    color: #8f6552;
+    background-color: #ddd;
+    border: none;
+}
+
+.form__button {
+    width: 25%;
+    margin: 0 auto;
+}
+
+.form__button-submit {
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    background-color: #8f6552;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.error__message{
+    color: #ff0000;
+}
