@@ -7,6 +7,7 @@ use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Category;
 use App\Rules\NotEmptyValue;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ContactController extends Controller
 {
@@ -44,5 +45,71 @@ class ContactController extends Controller
         ]);
         Contact::create($contact);
         return view('thanks');
+    }
+
+    public function export(Request $request)
+    {
+        // 1. 検索条件を反映させてクエリを作成
+        $query = Contact::query()->with('category');
+
+        // 名前検索（姓または名に一致）
+        if ($request->filled('fullname')) {
+            $query->where(function($q) use ($request) {
+                $q->where('last_name', 'like', '%' . $request->fullname . '%')
+                ->orWhere('first_name', 'like', '%' . $request->fullname . '%');
+            });
+        }
+
+        // 性別検索
+        if ($request->filled('gender')) {
+            $genderValue = $request->gender;
+            
+            // 「全て（選択なし）」を 0 や空文字で扱っている場合は除外
+            if ($genderValue != '0' && $genderValue != '') {
+                $query->where('gender', $genderValue);
+            }
+        }
+
+        // カテゴリ検索
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // キーワード検索（メールアドレスなど）
+        if ($request->filled('keyword')) {
+            $query->where('email', 'like', '%' . $request->keyword . '%');
+        }
+
+        // 絞り込んだデータを取得
+        $contacts = $query->get();
+
+        // --- ここから下（StreamedResponseの部分）は前回のコードと同じ ---
+        $csvHeader = ['お名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容'];
+
+        return new StreamedResponse(function () use ($csvHeader, $contacts) {
+            $handle = fopen('php://output', 'w');
+            fputs($handle, chr(0xEF) . chr(0xBB) . chr(0xBF)); // BOM
+            fputcsv($handle, $csvHeader);
+
+            foreach ($contacts as $contact) {
+                $gender = $contact->gender;
+                $tel = $contact->tel_first . '-' . $contact->tel_middle . '-' . $contact->tel_last;
+
+                fputcsv($handle, [
+                    $contact->last_name . ' ' . $contact->first_name,
+                    $gender,
+                    $contact->email,
+                    $tel,
+                    $contact->address,
+                    $contact->building,
+                    $contact->category->content ?? '',
+                    $contact->detail,
+                ]);
+            }
+            fclose($handle);
+        }, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="contacts_search_' . date('Ymd') . '.csv"',
+        ]);
     }
 }

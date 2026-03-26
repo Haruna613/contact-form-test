@@ -1,55 +1,109 @@
-.header {
+.main-inner{
+    position: relative;
     width: 100%;
-    border-bottom: 1px solid #ddd;
+    height: 300px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 200px auto;
 }
 
-.header-inner {
-    width: 80%;
-    margin-left: 15%;
+.main-inner__background{
+    position: absolute;
+    font-size: 160px;
+    font-weight: bold;
+    color: #f0f0f0;
+    white-space: nowrap;
+    z-index: 1;
+    user-select: none;
 }
 
-.header-inner__title {
-    width: 30%;
-    font-family: serif;
+.thanks-message{
+    width: 100%;
+}
+
+.thanks-message__text{
+    position: relative;
+    font-size: 28px;
     color: #8f6552;
-    font-size: 36px;
+    z-index: 2;
     text-align: center;
+    font-weight: bold;
+}
+
+.home-link{
+    width: 50%;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
 }
 
-.header-inner__link{
-    width: 5%;
-    height: 30px;
-    font-family: serif;
-    color: #8f6552;
-    background-color: #ddd;
+.home-link__button{
+    width: 100%;
+    position: relative;
+    font-size: 24px;
+    z-index: 2;
+    text-align: center;
     text-decoration: none;
-    border: 1px solid #8f6552;
+    background-color: #7e5f4d;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 3px;
-    margin: 1% 10% 0 0;
-    text-align: center;
-    padding: 2px 0 0 0;
+    cursor: pointer;
 }
 
-.main {
-    width: 100%;
+@media screen and (max-width: 853px) {
+    .main-inner__background {
+        font-size: 120px;
+    }
+
+    .thanks-message__text {
+        font-size: 24px;
+    }
+
+    .home-link {
+        width: 40%;
+    }
+
+    .home-link__button {
+        font-size: 22px;
+    }
 }
 
-.main-inner {
-    width: 100%;
-    margin: 0 auto;
+@media screen and (max-width: 540px) {
+    .main-inner__background {
+        font-size: 80px;
+    }
+
+    .thanks-message__text {
+        font-size: 16px;
+    }
+
+    .home-link {
+        width: 30%;
+    }
+
+    .home-link__button {
+        font-size: 14px;
+    }
 }
 
-.main-inner__header {
-    width: 100%;
-    margin: 0 auto;
-}
+@media screen and (max-width: 480px) {
+    .main-inner__background {
+        font-size: 60px;
+    }
 
-.main-inner__header-title {
-    font-family: serif;
-    color: #8f6552;
-    font-size: 72px;
-    text-align: center;
-    margin-top: 100px;
+    .thanks-message__text {
+        font-size: 12px;
+    }
+
+    .home-link {
+        width: 30%;
+    }
+
+    .home-link__button {
+        font-size: 12px;
+    }
 }

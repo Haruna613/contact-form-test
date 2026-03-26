@@ -5,13 +5,13 @@
 }
 
 .header-inner {
-    width: 80%;
+    width: 100%;
     margin-left: 15%;
     padding: 10px 0;
 }
 
 .header-inner__title {
-    width: 30%;
+    width: 100%;
     font-family: serif;
     color: #8f6552;
     font-size: 36px;
@@ -20,7 +20,7 @@
 }
 
 .header-inner__link {
-    width: 5%;
+    width: 15%;
     height: 30px;
     font-family: serif;
     color: #8f6552;
@@ -28,7 +28,7 @@
     text-decoration: none;
     border: 1px solid #8f6552;
     border-radius: 3px;
-    margin: 2% 10% 0 0;
+    margin: 2% 5% 0 0;
     text-align: center;
     padding: 2px 0 0 0;
 }
@@ -115,4 +115,55 @@
 
 .error__message{
     color: #ff0000;
+}
+
+@media screen and (max-width: 540px) {
+    .header-inner__title {
+        width: 100%;
+        font-family: serif;
+        color: #8f6552;
+        font-size: 24px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .header-inner__link {
+        width: 25%;
+        margin: 4% 2% 0 0;
+        padding: 4px 0 0 0;
+        font-size: 12px;
+    }
+
+    .main-inner__header {
+        width: 100%;
+    }
+
+    .main-inner__header-title {
+        font-size: 24px;
+    }
+
+    .group__title {
+        margin: 10px 0;
+    }
+
+    .group__title-name {
+        font-size: 16px;
+    }
+
+    .form__group {
+        width: 80%;
+    }
+
+    .group__input {
+        padding: 10px;
+    }
+
+    .form__button {
+        width: 40%;
+    }
+
+    .form__button-submit {
+        font-size: 16px;
+        padding: 10px;
+    }
 }

@@ -35,17 +35,23 @@
                         </span>
                     </div>
                     <div class="form__group-content">
-                        <div class="form__input--text">
-                            <input class="form__input--name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" />
-                            <input class="form__input--name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎">
-                        </div>
-                        <div class="form__error">
-                            @error('last_name')
-                                {{ $message }}
-                            @enderror
-                            @error('first_name')
-                                {{ $message }}
-                            @enderror
+                        <div class="form__group-content-inner">
+                            <div class="form__input--text">
+                                <input class="form__input--name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" >
+                                <div class="form__error">
+                                    @error('last_name')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form__input--text">
+                                <input class="form__input--name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎">
+                                <div class="form__error">
+                                    @error('first_name')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +94,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input class="form__input--email" type="email" name="email" value="{{ old('email') }}" placeholder="例：test@example.com">
+                            <input class="form__input--email" type="text" name="email" value="{{ old('email') }}" placeholder="例：test@example.com">
                         </div>
                         <div class="form__error">
                             @error('email')
@@ -115,15 +121,13 @@
                             <input class="form__input--tel" type="tel" name="tel_last" value="{{ old('tel_last') }}"  placeholder="5678">
                         </div>
                         <div class="form__error">
-                            @error('tel_first')
-                                {{ $message }}
-                            @enderror
-                            @error('tel_middle')
-                                {{ $message }}
-                            @enderror
-                            @error('tel_last')
-                                {{ $message }}
-                            @enderror
+                            @php
+                                $telError = $errors->first('tel_first') ?: ($errors->first('tel_middle') ?: $errors->first('tel_last'));
+                            @endphp
+
+                            @if($telError)
+                                {{ $telError }}
+                            @endif
                         </div>
                     </div>
                 </div>

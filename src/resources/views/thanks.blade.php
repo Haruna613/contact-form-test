@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <h1 class="header-inner__title">
-                FashionablyLate
-            </h1>
-        </div>
-        <a class="header-inner__link" href="/">HOME</a>
-    </header>
     <main class="main">
         <div class="main-inner">
-            <div class="main-inner__header">
-                <h2 class="main-inner__header-title">
+            <div class="main-inner__background">
+                <span class="main-inner__background-title">
                     Thank You
-                </h2>
+                </span>
+            </div>
+            <div class="main-inner__message">
+                <div class="thanks-message">
+                    <p class="thanks-message__text">お問い合わせありがとうございました</p>
+                </div>
+                <div class="home-link">
+                    <a class="home-link__button" href="/">HOME</a>
+                </div>
             </div>
         </div>
     </main>

@@ -32,3 +32,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/search', [AuthController::class, 'search']);
 
 Route::delete('/delete', [AuthController::class, 'delete']);
+
+Route::get('/contacts/export', [ContactController::class, 'export'])->name('contacts.export');

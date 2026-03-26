@@ -39,9 +39,15 @@ class ContactRequest extends FormRequest
 
     public function messages()
     {
+        $isBothEmpty = empty($this->last_name) && empty($this->first_name);
+
         return [
-            'last_name.required' => '姓を入力してください',
-            'first_name.required' => '名を入力してください',
+            'last_name.required' => $isBothEmpty
+                ? 'お名前を入力してください'
+                : '姓を入力してください',
+            'first_name.required' => $isBothEmpty
+                ? ''
+                : '名を入力してください',
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',

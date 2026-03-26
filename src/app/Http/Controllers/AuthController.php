@@ -8,10 +8,33 @@ use App\Models\Category;
 
 class AuthController extends Controller
 {
-    public function admin()
+    public function admin(Request $request)
     {
-        $contacts = Contact::with('category')->paginate(8);
+        $query = Contact::query()->with('category');
+
+        if ($request->filled('fullname')) {
+            $query->where(function($q) use ($request) {
+                $q->where('last_name', 'like', '%' . $request->fullname . '%')
+                ->orWhere('first_name', 'like', '%' . $request->fullname . '%');
+            });
+        }
+
+        if ($request->filled('gender') && $request->gender != 0) {
+            $query->where('gender', $request->gender);
+        }
+
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        if ($request->filled('keyword')) {
+            $query->where('email', 'like', '%' . $request->keyword . '%');
+        }
+
+        $contacts = $query->paginate(8)->withQueryString();
+
         $categories = Category::all();
+
         return view('auth.admin', compact('contacts', 'categories'));
     }
 

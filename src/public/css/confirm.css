@@ -4,7 +4,7 @@
 }
 
 .header-inner {
-    width: 30%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .main-inner__header {
-    width: 20%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -42,14 +42,8 @@
     margin: 0 auto;
 }
 
-.form__group{
-    width: 100%;
-}
-
-.form__table{
-    width: 100%;
-}
-
+.form__group,
+.form__table,
 .form__table-row{
     width: 100%;
 }
@@ -70,15 +64,15 @@
 }
 
 .form__table--name{
-    width: 10%;
+    width: 15%;
     border: none;
-    padding: 10px;
     color: #8f6552;
     font-size: 16px;
 }
 
 .form__table--name:first-child{
     margin-left: 5%;
+    padding: 10px 0 10px 10px;
 }
 
 .form__table--item{
@@ -104,7 +98,7 @@
 
 .form__buttons{
     width: 20%;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     display: flex;
 }
 
@@ -122,7 +116,7 @@
 }
 
 .form__buttons-edit{
-    width: 30%;
+    width: 50%;
     margin-top: 60px;
     color: #7e5f4d;
     font-size: 16px;
@@ -130,4 +124,113 @@
     border-bottom: 1px solid #7e5f4d;
     background-color: #fff;
     cursor: pointer;
+}
+
+@media screen and (max-width: 540px) {
+    .header-inner__title {
+        font-size: 32px;
+    }
+
+    .main-inner__header-title {
+        font-size: 32px;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .form__table--title {
+        width: 30%;
+        font-size: 14px;
+        padding: 10px 0 10px 10px;
+    }
+
+    .form__table--name {
+        font-size: 12px;
+    }
+
+    .form__table--name:first-child {
+        padding: 10px 0 10px 5px;
+    }
+
+    .form__table--item {
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    .form__table--tel {
+        font-size: 12px;
+    }
+
+    .form__buttons {
+        width: 30%;
+    }
+
+    .form__buttons-send {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .form__buttons-edit {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-inner__title {
+        font-size: 32px;
+    }
+
+    .main-inner__header-title {
+        font-size: 32px;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .form__table--title {
+        width: 30%;
+        font-size: 12px;
+        padding: 10px 0 10px 5px;
+    }
+
+    .form__table--name {
+        font-size: 12px;
+    }
+
+    .form__table--name:first-child {
+        padding: 10px 0 10px 5px;
+        margin: 0;
+    }
+
+    .form__table--item {
+        padding: 10px 5px;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .form__table--tel {
+        font-size: 12px;
+        margin: 0;
+        width: 15%;
+    }
+
+    .form__table--tel:first-child {
+        margin: 0;
+        padding-left: 5px;
+    }
+
+    .form__buttons {
+        width: 40%;
+    }
+
+    .form__buttons-send {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .form__buttons-edit {
+        font-size: 16px;
+    }
 }
